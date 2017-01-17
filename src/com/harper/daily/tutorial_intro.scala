@@ -8,7 +8,7 @@ object tutorial_intro {
     val V = scala.io.StdIn.readInt
     val n = scala.io.StdIn.readInt
     val ar = scala.io.StdIn.readLine().split(" ").map(_.toInt).toList
-    println(V,n,ar)
+//    println(V,n,ar)
     println(ar.indexOf(V))
   }
 }
