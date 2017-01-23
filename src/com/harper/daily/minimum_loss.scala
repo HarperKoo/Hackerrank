@@ -29,3 +29,25 @@ object minimum_loss {
     println(minLost)
   }
 }
+
+object Solution_loss extends App {
+
+  val n = readInt
+  val prices = readLine.split(" ").map(_.toLong).iterator
+  val treeSet = new java.util.TreeSet[java.lang.Long]()
+  var minLost = 10000L * 10000 * 10000 * 10000
+  while (prices.hasNext && minLost > 1) {
+    val next = prices.next
+    println(next)
+    treeSet.add(next)
+    println(treeSet)
+    val higher = treeSet.higher(next)
+    println(higher)
+    println()
+    if (higher != null) {
+      val lost = higher - next
+      minLost = math.min(minLost, lost)
+    }
+  }
+  println(minLost)
+}

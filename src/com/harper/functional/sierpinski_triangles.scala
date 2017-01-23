@@ -76,7 +76,7 @@ object sierpinski_triangles {
   }
 }
 
-object Solution {
+object Solutiontri {
 
   def sierp(b:Array[Array[Char]], x:Int, y:Int, h:Int, w:Int, n:Int):Array[Array[Char]] = n match {
     case 0 =>
