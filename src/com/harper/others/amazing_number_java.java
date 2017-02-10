@@ -3,7 +3,7 @@ package com.harper.others;
 import java.util.LinkedList;
 
 /**
- * Created by harperkoo on 1/20/17.
+ * https://discuss.leetcode.com/topic/67628/fb-phone-find-amazing-number/8
  */
 public class amazing_number_java {
     public static void main(String[] args) {
