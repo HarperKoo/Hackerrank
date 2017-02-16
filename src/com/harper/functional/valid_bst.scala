@@ -3,7 +3,7 @@ package com.harper.functional
 /**
   * Created by harperkoo on 2/14/17.
   * https://www.hackerrank.com/challenges/valid-bst
-  * 三个一组:
+  * 以root大小分组:
   *   num2>num1 && num3 < num1 => no
   */
 object valid_bst {
