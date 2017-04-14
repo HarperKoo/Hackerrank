@@ -31,3 +31,27 @@ object sequence_full_of_colors {
     }
   }
 }
+
+object Solution2 {
+
+  def isFullOfColors(colors: String): Boolean = {
+    val diffsOnPrefixes = colors.scanLeft((0, 0)) {
+      case(c1, c2) => c2 match {
+        case 'R' => (c1._1 - 1, c1._2)
+        case 'G' => (c1._1 + 1, c1._2)
+        case 'Y' => (c1._1, c1._2 - 1)
+        case 'B' => (c1._1, c1._2 + 1)
+      }
+    }
+    diffsOnPrefixes.forall {
+      case(x, y) => -2 < x && x < 2 && -2 < y && y < 2
+    } && (diffsOnPrefixes.length == 0 || diffsOnPrefixes.last == (0, 0))
+  }
+
+  def main(args: Array[String]) {
+    val nTests = io.StdIn.readInt()
+    for (i <- 0 until nTests) {
+      println(if (isFullOfColors(io.StdIn.readLine())) "True" else "False")
+    }
+  }
+}
