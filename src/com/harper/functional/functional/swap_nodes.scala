@@ -7,7 +7,7 @@ package com.harper.functional.functional
 
 import java.util.Scanner
 
-object Solution extends App {
+object swap_nodes extends App {
 
   object Node {
     def emptyNode(value: Int, depth: Int): Node = {

@@ -14,17 +14,24 @@ object kmp_fp {
       var sub_str = ""
       var common_length = 0
       var j = 0
+//      println(i,j,text(i),pat(j))
       while(text(i) == pat(j)){
         if(j < pat.length-1){
-          sub_str += text(i)
-          common_length += 1
-          i += 1//TODO
-          j += 1
-        }else return true
+          if(i >= text.length-1)
+            return false
+          else{
+            sub_str += text(i)
+            common_length += 1
+            i += 1
+            j += 1
+          }
+        } else
+          return true
       }
-
+      i -= j
+      j = 0
       val move_index = if(sub_str.length > 1) common_length - sub_match(sub_str) else 0
-      println(i,common_length,sub_str,move_index)
+//      println(i,j,common_length,sub_str,move_index)
       i += (if(move_index == 0) 1 else move_index)//TODO
     }
     false
@@ -56,5 +63,24 @@ object kmp_fp {
       println(if(kmp_search(text,pat)) "YES" else "NO")
     }
     )
+  }
+}
+
+
+object Solution {
+
+  val YES = "YES"
+  val NO = "NO"
+
+  def solution(text: String, pat: String): String = if(text.indexOf(pat) != -1) YES else NO
+
+  def main(args: Array[String]) {
+    val count = scala.io.StdIn.readInt()
+    val result = (1 to count).map{_ =>
+      val text = scala.io.StdIn.readLine()
+      val pat = scala.io.StdIn.readLine()
+      solution(text, pat)
+    }
+    result.foreach(println)
   }
 }
